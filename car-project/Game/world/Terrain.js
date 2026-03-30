@@ -117,11 +117,11 @@ export class Terrain {
         this.strength = 1.3
         this.warpFrequency = 5.1
         this.warpStrength = 0.457
-        this.grassNoiseFrequency = 0.085
-        this.grassMaskThreshold = 0.37
-        this.grassThresholdBlendRange = 0.05
-        this.grassHeightMin = 1.21
-        this.grassHeightMax = 2.39
+        this.grassNoiseFrequency = 0.107
+        this.grassMaskThreshold = 0.164
+        this.grassThresholdBlendRange = 0.150
+        this.grassHeightMin = 1.30
+        this.grassHeightMax = 2.91
 
         this.container.position.y += 1.2
         this.container.position.x += 10
