@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Datatype:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-MerriWeather: "Merriweather", serif;
+  --font-DataType: "Datatype", monospace;
+  --font-Cursive: "Corinthia", cursive;
+}
+
+body,
+html {
+  --bg-color: #fff;
+
+  cursor: none;
+
+  @apply w-[100dvw] min-h-[100dvh] overflow-x-hidden font-MerriWeather font-medium p-0 m-0;
+  background-color: var(--bg-color);
+}
+
+.cursor-target
+{
+  --line-color: #808080;
+
+  --cursor-x: 50vw;
+  --cursor-y: 50vh;
+  --cursor-gap: 25px;
+
+  @apply fixed w-screen h-screen top-0 left-0 z-10000000 opacity-100;
+  pointer-events: none;
+
+  .center-blockage
+  {
+    left: var(--cursor-x);
+    top: var(--cursor-y);
+    @apply w-[50px] h-[50px] origin-center absolute translate-x-[-50%] translate-y-[-50%] flex justify-center items-center;
+
+    .center-vertical
+    {
+      @apply absolute h-[60%] w-[3px] left-[50%] translate-x-[-50%];
+      background: var(--line-color);
+    }
+
+    .center-horizontal
+    {
+      @apply absolute w-[60%] h-[3px] top-[50%] translate-y-[-50%];
+      background: var(--line-color);
+    }
+  }
+
+  .focus-vertical-top
+  {
+    left: var(--cursor-x);
+    height: max(calc(var(--cursor-y) - var(--cursor-gap)), 0px);
+    @apply w-px absolute top-0 translate-x-[-50%];
+    opacity: 30%;
+    pointer-events: none;
+    background: var(--line-color);
+  }
+
+  .focus-vertical-bottom
+  {
+    left: var(--cursor-x);
+    top: calc(var(--cursor-y) + var(--cursor-gap));
+    height: max(calc(100vh - var(--cursor-y) - var(--cursor-gap)), 0px);
+    @apply w-px absolute translate-x-[-50%];
+    pointer-events: none;
+    opacity: 30%;
+    background: var(--line-color);
+  }
+
+  .focus-horizontal-left
+  {
+    top: var(--cursor-y);
+    width: max(calc(var(--cursor-x) - var(--cursor-gap)), 0px);
+    @apply h-px absolute left-0 translate-y-[-50%];
+    pointer-events: none;
+    opacity: 30%;
+    background: var(--line-color);
+  }
+
+  .focus-horizontal-right
+  {
+    top: var(--cursor-y);
+    left: calc(var(--cursor-x) + var(--cursor-gap));
+    width: max(calc(100vw - var(--cursor-x) - var(--cursor-gap)), 0px);
+    @apply h-px absolute translate-y-[-50%];
+    background: var(--line-color);
+    pointer-events: none;
+    opacity: 30%;
+  }
+}
+
+@layer components {
+  main {
+    @apply relative w-screen min-h-screen;
+
+
+    .experience {
+      .project-frame {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+        z-index: 0;
+        background: #050505;
+      }
+
+      .project-frame.is-active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .project-frame__iframe {
+        z-index: -1;
+        width: 100dvw;
+        height: 100%;
+        border: 0;
+        display: block;
+        background: transparent;
+      }
+    }
+
+    .loading-page {
+      --wipe: -10%;
+      --opacity: 0.05;
+      --angle-base: 0deg;
+
+      .loading-text {
+        display: inline-block;
+        background-size: 120% 100%;
+        background-repeat: no-repeat;
+
+        text-align: center;
+
+        background: linear-gradient(
+          80deg,
+          rgba(0, 0, 0, 1) var(--wipe),
+          rgba(0, 0, 0, 1) var(--wipe, 10%),
+          rgba(255, 255, 255, 0) var(--wipe, 10%),
+          rgba(255, 255, 255, 0) 100%
+        );
+
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: rgba(0, 0, 0, var(--opacity));
+      }
+
+      .char {
+        opacity: 0;
+        transform-origin: 0 0;
+        overflow: hidden;
+      }
+    }
+
+    .text-section {
+      pointer-events: none;
+    }
+  
+    .text-section .page-progress,
+    .text-section .page-progress *,
+    .text-section .bar-container,
+    .text-section .bar {
+      pointer-events: auto;
+    }
+    
+    .text-section {
+      .page-progress {
+        @apply z-20;
+        pointer-events: auto;
+      }
+
+      .bar-container {
+        pointer-events: auto;
+      }
+
+      .bar {
+        pointer-events: auto;
+        min-height: 10px;
+        transform-origin: center;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        transition: box-shadow 0.2s ease;
+      }
+
+      .bar:hover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      }
+
+      .text-section-description {
+        .line-mask {
+          @apply overflow-hidden;
+        }
+      }
+    }
+
+    .pop-up-container {
+      @apply fixed top-0 left-0 w-[400px] h-[150px] z-10000 m-10;
+      /* background-image: url('/images/wooden-banner.webp');
+      background-size: contain; */
+
+      .pop-up {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        @apply flex items-center justify-center shadow-lg border-4 border-[#808080] rounded-3xl;
+      }
+
+      .cancel-button {
+        @apply h-full absolute left-[100%] w-[5rem] ml-3 flex justify-center items-center;
+
+        .container {
+          width: full;
+          position: relative;
+          aspect-ratio: 1/1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          /* @apply bg-black; */
+          cursor: pointer;
+
+          .slash {
+            @apply h-[4rem] w-[5px] rounded-full bg-[#a98467] absolute origin-center;
+          }
+
+          .slash:nth-child(1) {
+            transform: rotateZ(45deg);
+          }
+
+          .slash:nth-child(2) {
+            transform: rotateZ(-45deg);
+          }
+        }
+      }
+
+      .text {
+        @apply text-center max-w-[80%] font-DataType text-xl text-[#808080];
+      }
+    }
+
+    .hero {
+      @apply h-screen w-full bg-white relative flex justify-center items-center;
+
+      .loading-text {
+        @apply font-Cursive text-[10rem] relative block;
+      }
+
+      .loading-page {
+        .bottom-text {
+          @apply absolute bottom-5 text-black text-center left-[50%] translate-x-[-50%] text-2xl;
+
+          span {
+            @apply inline-block cursor-pointer transition-transform duration-300 ease-out hover:scale-110 hover:rotate-z-[-20deg];
+          }
+        }
+      }
+    }
+  }
+}

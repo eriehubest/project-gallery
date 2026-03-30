@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>testpage</title>
+    <link rel="stylesheet" href="./src/style.css">
+  </head>
+  <body>
+    <main>
+      <div class="experience fixed w-[50dvw] h-dvh top-0 left-0">
+        <canvas class="js-canvas relative w-full h-full"></canvas>
+      </div>
+
+      <div class="text-section fixed w-[50dvw] h-dvh top-0 right-0 flex justify-center items-center z-10000">
+        <div class="relative text-page  w-[600px] h-[500px] bg-black/0 flex flex-col items-center justify-center overflow-hidden">
+          <h1 class="text-section-heading relative font-MerriWeather text-6xl text-[#1d2d44] text-white/80 overflow-hidden h-20">
+            Where it starts
+          </h1>
+          <p class="text-section-description relative text-center text-md m-7 text-[#3e5c76] text-white/80 w-[80%] overflow-hidden leading-8">
+            I started off by exploring simple concepts like redering cubes, 
+            this was the easiest phase but build all fundamentals in order for 
+            future data structures, abstract ideas, and complex innovations to come true
+          </p>
+        </div>
+
+        <div class="page-progress absolute w-full h-[20dvh] top-0 left-0 flex items-center justify-center gap-5">
+          <div class="bar-container w-[70%] h-full flex items-center gap-5 mt-10">
+            <div class="bar h-[10%] flex-1 bg-white rounded-full"></div>
+            <div class="bar h-[10%] flex-1 bg-white rounded-full"></div>
+            <div class="bar h-[10%] flex-1 bg-white rounded-full"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pop-up-container">
+        <div class="intro-page pop-up">
+          <p class="text">Click on the navigation bars on the side to switch between pages</p>
+          <div class="cancel-button">
+            <div class="container">
+              <div class="left-slash slash"></div>
+              <div class="right-slash slash"></div>
+            </div>
+          </div>
+        </div>
+        <div class="cursor-page pop-up">
+          <p class="text">Hover over the image and observe effect</p>
+          <div class="cancel-button">
+            <div class="container">
+              <div class="left-slash slash"></div>
+              <div class="right-slash slash"></div>
+            </div>
+          </div>
+        </div>
+        <div class="vehicle-page pop-up">
+          <p class="text">Use arrows or WASD to control the car, refresh if fail</p>
+          <div class="cancel-button">
+            <div class="container">
+              <div class="left-slash slash"></div>
+              <div class="right-slash slash"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="loading-page relative w-screen h-screen flex justify-center items-center bg-white z-10000">
+        <div class="loading-text font-DataType text-[5rem] whitespace-pre w-[11ch]">Loading..</div>
+
+        <div class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] h-[500px] w-[500px]">
+          <div id="ring-text" class="absolute left-1/2 top-1/2 hidden"></div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
