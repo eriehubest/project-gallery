@@ -131,15 +131,5 @@ export default class LoadingSetup {
                 })
             }
         })
-
-        addEventListener('pointerdown', () => {
-            gsap.to(this.loadingPageDOM, {
-                opacity: 0,
-                onComplete: () => {
-                    this.loadingPageDOM.classList.add('hidden')
-                    this.events.trigger('start')
-                }
-            })
-        })
     }
 }
