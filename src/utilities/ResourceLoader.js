@@ -3,6 +3,7 @@ import { DRACOLoader } from "three/examples/jsm/Addons.js";
 import { KTX2Loader } from "three/examples/jsm/Addons.js";
 import * as THREE from 'three/webgpu'
 import Experience from "../Experience";
+import { getAssetPath } from "./assetPath";
 
 export default class ResourceLoader {
     constructor() {
@@ -28,12 +29,12 @@ export default class ResourceLoader {
         }
         else if (_type === 'textureKtx') {
             loader = new KTX2Loader()
-            loader.setTranscoderPath('/basis/')
+            loader.setTranscoderPath(getAssetPath('basis/'))
             loader.detectSupport(this.experience.rendering.renderer)
         }
         else if (_type === 'draco') {
             loader = new DRACOLoader()
-            loader.setDecoderPath('/draco/')
+            loader.setDecoderPath(getAssetPath('draco/'))
             loader.preload();
         }
         else if (_type === 'gltf') {

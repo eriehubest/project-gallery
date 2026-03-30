@@ -16,6 +16,7 @@ import SetGlobalAnimation from './pages/SetGlobalAnimation';
 import VehicleProject from './pages/VehicleProject';
 import { Inputs } from './utilities/Inputs';
 import CursorTarget from './utilities/CursorTarget';
+import { getAssetPath } from './utilities/assetPath';
 
 gsap.registerPlugin(SplitText)
 
@@ -177,8 +178,8 @@ into one complete and functional system.`,
 
         this.resources = await this.resourceLoader.load(
             [
-                ['vehicleModel', '/vehicle/default-compressed.glb', 'gltf',],
-                ['hoverAnimationDogTexture', '/hover-animation/images/picture-1.png', 'texture']
+                ['vehicleModel', getAssetPath('vehicle/default-compressed.glb'), 'gltf',],
+                ['hoverAnimationDogTexture', getAssetPath('hover-animation/images/picture-1.png'), 'texture']
             ],
 
             ({ loaded, total, progress }) => {

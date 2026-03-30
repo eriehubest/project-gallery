@@ -22,6 +22,7 @@ import {
     vec2,
     vec3
 } from 'three/tsl'
+import { getAssetPath } from "../utilities/assetPath";
 
 export default class CursorAnimation {
     constructor(stateChange) {
@@ -40,7 +41,7 @@ export default class CursorAnimation {
         displacement.context.fillRect(0, 0, displacement.canvas.width, displacement.canvas.height)
 
         displacement.glowImage = new Image()
-        displacement.glowImage.src = '/hover-animation/images/glow.png'
+        displacement.glowImage.src = getAssetPath('hover-animation/images/glow.png')
 
         displacement.interactivePlane = new THREE.Mesh(
             new THREE.PlaneGeometry(10, 10),

@@ -1,10 +1,11 @@
 import Experience from '../Experience';
 import gsap from 'gsap';
+import { getAssetPath } from '../utilities/assetPath';
 
 export default class VehicleProject {
     constructor() {
         this.experience = Experience.getInstance();
-        this.projectUrl = '/car-project/index.html';
+        this.projectUrl = getAssetPath('car-project/index.html');
         this.isActive = false;
         this.experience.setGlobalAnimation.addPageObject('VehicleProject')
 
