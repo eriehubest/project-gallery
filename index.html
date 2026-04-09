@@ -4,29 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>testpage</title>
-    <script type="module" crossorigin src="/project-gallery/assets/main-Dydee8T-.js"></script>
+    <script type="module" crossorigin src="/project-gallery/assets/main-DoyqvTUv.js"></script>
     <link rel="modulepreload" crossorigin href="/project-gallery/assets/tweakpane-B2hbshMO.js">
-    <link rel="stylesheet" crossorigin href="/project-gallery/assets/main-Db3SD8S9.css">
+    <link rel="stylesheet" crossorigin href="/project-gallery/assets/main-DalpDLdy.css">
   </head>
   <body>
     <main>
-      <div class="page-details-container">
+      <div class="page-details-container hidden">
         <div class="toggle-button">
           <div class="cross"></div>
           <div class="cross"></div>
         </div>
 
         <div class="text-container">
-          <div class="panel-circle" aria-hidden="true"></div>
           <p>
             This project was my first attempt at building a system where multiple components had to work together rather than treating each feature independently. Instead of focusing only on visuals, I wanted to build a structure where rendering, physics, input, camera logic, resource loading, and world organisation were coordinated through a single architecture. <br/><br/>
 
 To manage this complexity, I organised the project into modular responsibilities. Rendering, vehicle behaviour, physics simulation, camera control, timing, input handling, and world construction were separated into their own systems. This separation became necessary as the project grew, because the main challenge shifted from simply making features work to making the system understandable enough to extend and debug.<br/><br/>
-
 The vehicle system itself required careful iteration. While basic movement is straightforward to implement, making the behaviour feel controlled and readable required balancing acceleration, steering response, braking behaviour, and physical stability. This forced me to think about the relationship between simulation and perception — how small changes in physics values could significantly affect how the movement felt to the user.<br/><br/>
-
+            </p>
+<div class="panel-circle" aria-hidden="true"></div>
+<p>
 One of the main challenges was managing interactions between systems. Adjustments in physics could affect controls, while camera changes could alter how motion was perceived. Solving this required repeated testing and refinement rather than one-time implementation. I learned that building complex systems is less about adding features and more about coordinating how existing parts interact.<br/><br/>
-
 As the project expanded, scene organisation also became critical. I separated terrain generation, respawn logic, vehicle setup, rendering flow, and input updates into structured components. This reinforced an important lesson: architecture is not something added after a project grows large — it becomes necessary as soon as complexity begins to accumulate.<br/><br/>
 
 This project changed how I think about programming. Earlier work focused on isolated features, but this experience required thinking about dependencies, update flow, and how data moves between systems. I began focusing more on how to maintain flexibility while increasing technical complexity.<br/><br/>
@@ -50,6 +49,8 @@ What I value most about this project is not the visual result, but what it taugh
             this was the easiest phase but build all fundamentals in order for 
             future data structures, abstract ideas, and complex innovations to come true
           </p>
+
+          <button class="button">About This Project</button>
         </div>
 
         <div class="page-progress absolute w-full h-[20dvh] top-0 left-0 flex items-center justify-center gap-5">
