@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>testpage</title>
-    <script type="module" crossorigin src="/project-gallery/assets/main-DoyqvTUv.js"></script>
+    <script type="module" crossorigin src="/project-gallery/assets/main-BAy4lYUL.js"></script>
     <link rel="modulepreload" crossorigin href="/project-gallery/assets/tweakpane-B2hbshMO.js">
-    <link rel="stylesheet" crossorigin href="/project-gallery/assets/main-DalpDLdy.css">
+    <link rel="stylesheet" crossorigin href="/project-gallery/assets/main-BE1s-Ckb.css">
   </head>
   <body>
     <main>
@@ -17,20 +17,93 @@
         </div>
 
         <div class="text-container">
+          <div class="detail-card detail-card--stats">
+            <p class="detail-card-label">code</p>
+            <h3>Project scale:</h3>
+            <ul>
+              <li>34 source files in the car project</li>
+              <li>4,234 lines of code</li>
+              <li>WebGPU renderer with postprocessing</li>
+              <li>Rapier-based vehicle physics</li>
+              <li>Modular game runtime</li>
+            </ul>
+          </div>
+
           <p>
-            This project was my first attempt at building a system where multiple components had to work together rather than treating each feature independently. Instead of focusing only on visuals, I wanted to build a structure where rendering, physics, input, camera logic, resource loading, and world organisation were coordinated through a single architecture. <br/><br/>
+            This project was my first attempt at building a system where multiple components had to work together rather than treating each feature independently. Instead of focusing only on visuals, I wanted to build a structure where rendering, physics, input, camera logic, resource loading, and world organisation were coordinated through a single architecture.
+          </p>
 
-To manage this complexity, I organised the project into modular responsibilities. Rendering, vehicle behaviour, physics simulation, camera control, timing, input handling, and world construction were separated into their own systems. This separation became necessary as the project grew, because the main challenge shifted from simply making features work to making the system understandable enough to extend and debug.<br/><br/>
-The vehicle system itself required careful iteration. While basic movement is straightforward to implement, making the behaviour feel controlled and readable required balancing acceleration, steering response, braking behaviour, and physical stability. This forced me to think about the relationship between simulation and perception — how small changes in physics values could significantly affect how the movement felt to the user.<br/><br/>
-            </p>
-<div class="panel-circle" aria-hidden="true"></div>
-<p>
-One of the main challenges was managing interactions between systems. Adjustments in physics could affect controls, while camera changes could alter how motion was perceived. Solving this required repeated testing and refinement rather than one-time implementation. I learned that building complex systems is less about adding features and more about coordinating how existing parts interact.<br/><br/>
-As the project expanded, scene organisation also became critical. I separated terrain generation, respawn logic, vehicle setup, rendering flow, and input updates into structured components. This reinforced an important lesson: architecture is not something added after a project grows large — it becomes necessary as soon as complexity begins to accumulate.<br/><br/>
+          <div class="detail-card detail-card--systems">
+            <p class="detail-card-label">code</p>
+            <h3>Core systems:</h3>
+            <ul>
+              <li>Renderer</li>
+              <li>Physics controller</li>
+              <li>Vehicle controller</li>
+              <li>Input manager</li>
+              <li>Resource loader</li>
+              <li>Scene manager</li>
+              <li>Camera system</li>
+              <li>Timing / update loop</li>
+            </ul>
+          </div>
 
-This project changed how I think about programming. Earlier work focused on isolated features, but this experience required thinking about dependencies, update flow, and how data moves between systems. I began focusing more on how to maintain flexibility while increasing technical complexity.<br/><br/>
+          <p>
+            To manage this complexity, I organised the project into modular responsibilities. <code>Game.js</code> coordinates the runtime, creating the scene, loading resources, attaching physics, building the world, creating the vehicle, and starting rendering. From there, systems such as <code>Vehicle.js</code>, <code>Physics.js</code>, <code>Rendering.js</code>, <code>World.js</code>, <code>View.js</code>, and <code>ResourcesLoader.js</code> each handle a separate part of the project.
+          </p>
 
-What I value most about this project is not the visual result, but what it taught me about structure. It reinforced the idea that complex systems require organisation, iteration, and the ability to reduce complexity into smaller interacting parts. This connection between structure in mathematics and structure in software is a major reason I continue to pursue computer science.<br/><br/>
+          <p>
+            The vehicle system itself required careful iteration. While basic movement is straightforward to implement, making the behaviour feel controlled and readable required balancing acceleration, steering response, braking behaviour, and physical stability. In the code, this became a full vehicle controller with chassis colliders, wheel settings, jump and boost behaviour, contact tracking, position history, and post-physics visual updates.
+          </p>
+
+          <p>
+            One of the main challenges was managing interactions between systems. Adjustments in physics could affect controls, while camera changes could alter how motion was perceived. Solving this required repeated testing and refinement rather than one-time implementation. I learned that building complex systems is less about adding features and more about coordinating how existing parts interact.
+          </p>
+
+          <p>
+            As the project expanded, scene organisation also became critical. I separated terrain generation, respawn logic, vehicle setup, rendering flow, and input updates into structured components. This reinforced an important lesson: architecture is not something added after a project grows large; it becomes necessary as soon as complexity begins to accumulate.
+          </p>
+
+          <div class="detail-grid">
+            <article class="detail-grid-card">
+              <p class="detail-grid-label">Vehicle.js</p>
+              <h4>561 lines</h4>
+              <p>
+                Handles chassis setup, wheel physics, driving behaviour, jump logic, boost values, contact history, and visual synchronisation.
+              </p>
+            </article>
+
+            <article class="detail-grid-card">
+              <p class="detail-grid-label">Rendering.js</p>
+              <h4>WebGPU pipeline</h4>
+              <p>
+                Uses `THREE.WebGPURenderer`, then builds a postprocessing pipeline with bloom and a custom cheap depth-of-field pass.
+              </p>
+            </article>
+
+            <article class="detail-grid-card">
+              <p class="detail-grid-label">World.js</p>
+              <h4>World construction</h4>
+              <p>
+                Creates terrain, lighting, a procedural ramp mesh, and a matching trimesh collider so the visual world and physical world stay aligned.
+              </p>
+            </article>
+
+            <article class="detail-grid-card">
+              <p class="detail-grid-label">Game.js</p>
+              <h4>System entry point</h4>
+              <p>
+                Connects loading, physics, view, vehicle, grass, quality settings, and the update loop into a single runtime.
+              </p>
+            </article>
+          </div>
+
+          <p>
+            This project changed how I think about programming. Earlier work focused on isolated features, but this experience required thinking about dependencies, update flow, and how data moves between systems. I began focusing more on how to maintain flexibility while increasing technical complexity.
+          </p>
+
+          <p>
+            What I value most about this project is not the visual result, but what it taught me about structure. It reinforced the idea that complex systems require organisation, iteration, and the ability to reduce complexity into smaller interacting parts. This connection between structure in mathematics and structure in software is a major reason I continue to pursue computer science.
           </p>
         </div>
       </div>
