@@ -1,11 +1,57 @@
-# my proposal
+# Project Gallery
 
-My interest in mathematics began through problem solving, particularly when I was first exposed to competiion-tier questions in lower secondary school. Initially, I approached these problems with the goal of finding the correct answers, but over time, I became more interested in the process itself. I realised that complex problems could be broekn down into simpler components, and that understanding structure was mroe important than memorizing formulas. 
+`Project Gallery` is a self-built technical portfolio designed to present larger computing projects in a clearer and more detailed way. It acts as the deeper technical companion to the main DSA portfolio website, with a stronger focus on system design, implementation choices, and project architecture.
 
-As I continued participating in competitions such as the UKMT series and the AMC 12, where I attained distinctions such as the top 5% in AMC 12B, I was exposed to a wider range of unfamiliar problems. These experiences encouraged me to think more independently and approach questions from multiple perspectives. Instead of relying on standard techniques, I began focusing on identifying patterns, forming conjectures, and verifying them carefully.
+## Overview
 
-This way of thinking naturally extended into my interest in computer science. Through programming, I found that I could apply similar logical structures to build systems rather than just solve abstract problems. I explored areas such as web development and system design, and developed projects including an interactive vehicle simulation. In this project, I worked on integrating rendering, physics, and user interaction into a cohesive system, which required careful structuring and organisation of different components.
+The gallery is structured as an interactive experience rather than a static list of projects. It introduces the progression from earlier experiments into more technically demanding work, then links that progression to a larger vehicle systems project.
 
-Through both mathematics and programming, I learned that solving complex problems is not only about technical knowledge, but also about managing structure and relationships between different parts. I also recognised the importance of refining my thinking process, particularly in avoiding premature conclusions and ensuring that my reasoning is both accurate and generalisable.
+The purpose of the project is not only to display finished visuals, but to show how increasingly complex software systems were designed, organized, and refined over time.
 
-I am interested in joining NYJC because I believe it provides an environment that encourages both academic rigour and independent exploration. I hope to continue developing my interest in mathematics and computer science while learning alongside peers with similar motivations, and further strengthen my ability to think critically and build meaningful systems.
+## Main Highlights
+
+- Built independently as part of a self-taught computing journey.
+- Uses `Three.js`, `GSAP`, `Rapier`, `Vite`, and modular JavaScript architecture.
+- Presents projects through an interactive, animated interface instead of a conventional grid or gallery layout.
+- Includes a deeper case-study view of a larger vehicle systems project.
+- Emphasizes architecture, interaction, and technical explanation rather than appearance alone.
+
+## Featured Project
+
+The main highlighted work in this gallery is the vehicle systems project found in [`car-project`](./car-project).
+
+That project brings together:
+
+- rendering
+- vehicle physics
+- input handling
+- camera logic
+- resource loading
+- world construction
+- timing and update flow
+
+The work was structured into separate systems so that complexity could be managed more clearly as the project expanded. Instead of treating each feature independently, the project was built around coordination between modules such as `Game.js`, `Vehicle.js`, `Physics.js`, `Rendering.js`, `World.js`, and `View.js`.
+
+## Why This Project Matters
+
+This gallery reflects a shift from simple experiments into more serious technical work. It shows:
+
+- independent learning
+- willingness to work through technical complexity
+- ability to organize larger projects into modular systems
+- interest in combining mathematical structure with software design
+
+For the DSA portfolio, this project serves as direct evidence of self-taught technical depth and project ownership.
+
+## Running Locally
+
+```bash
+npm install
+npm run dev
+```
+
+To create a production build:
+
+```bash
+npm run build
+```
